@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block body %}
+Welcome to the Home Page!
+<br>
+<br>
+<form method="POST">
+{{patient}} 
+<br>
+<br>
+Current Phone Number: {{patient.phone}} 
+<br>
+Update Phone Number:<input type="text" name="phone">       
+<br>
+<br>
+Current Email: {{patient.email}} 
+<br> 
+Update Email: <input type="text" name="email"> 
+<br>        
+<br>
+Current Username: {{patient.username}}
+<br>
+   Update Username:   <input type="text" name="username">     
+<br>
+<br>
+   Update Password: {{patient.password}} <input type="text" name="password">     
+  <br>
+<br>
+
+   <button>Update</button>  
+<br>        
+</form>
+{% endblock %}

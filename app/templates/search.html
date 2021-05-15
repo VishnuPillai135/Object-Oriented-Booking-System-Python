@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>Search</h1>
+<form method="POST">
+    <input type="text" name="search" placeholder="Search"><br>
+    <input type="radio" name="select" value="centre_name"> Health-care centre by name <br>
+    <input type="radio" name="select" value="centre_sub"> Health-care centres by suburb<br>
+    <input type="radio" name="select" value="service_type">  Type of service <br>
+    <input type="radio" name="select" value="provider_name"> Health-care providers by name<br>
+	<button type='submit'>Search</button>
+</form>
+
+<ul>
+{% for provider in providers %}
+	<li><a href="{{url_for('provider', provnum=provider.provnum)}}">{{provider.name}} {{provider.service}}</a></li>
+{% endfor %}
+
+{% for location in locations %}
+	<li><a href="{{url_for('location', centre=location.name,location = location)}}">{{location.name}} {{location.suburb}}</a></li>
+{% endfor %}
+
+
+</ul>
+{% endblock %}

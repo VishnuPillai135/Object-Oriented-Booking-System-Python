@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<br/>
+<form method="POST">
+<h3>{{ location }}</h3>
+<button>Update</button>  
+
+{% if current_user.is_admin() == false %}
+<div>
+
+<div>
+Suburb:   {{location.suburb}}
+</div>
+
+Associated Providers:
+{% for provider in providers %}
+	<li><a href="{{url_for('provider', provnum=provider.provnum)}}">{{provider.name}} {{provider.service}}</a></li>
+{% endfor %}
+{% endif %} 
+
+Centre Rating: {{location.rating}}
+<div>
+Change Rating:<select name="choice">
+        {% for i in choices %}
+        <option value="{{ i }}">{{ i }}</option>
+        {% endfor %}
+<div>
+
+
+{% endblock %}

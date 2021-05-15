@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block body %}
+
+  
+<div>
+  <h2>{{provider}}</h2>
+</div>
+
+<form method="POST">
+
+ 
+{% if confirmation %}
+Enter Time Slot:
+<select name="choice">
+        {% for i in choices %}
+        <option value="{{ i }}">{{ i }}</option>
+        {% endfor %}
+{% endif %}        
+<div>
+    <div>
+      Enter Date(D/M/Y) <input {% if confirmation %}readonly value="{{form['date']}}"{% endif %} type="date" name="date">
+    </div>
+    <br>
+     Reason For Visit <input {% if confirmation %}readonly value="{{form['reason']}}"{% endif %}   name="reason">
+      <br/>
+    <!-- Submit Buttons -->
+    {% if confirmation %}
+
+      <button name="confirm"  type="submit">Confirm</button>
+      <button name="cancel"   type="submit">Cancel</button>
+
+    {% else %}
+      <button name="check"    type="submit">Check Booking</button>
+
+    {% endif %}
+
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>Booking Confirmed!</h1>
+{{booking}}
+<br>
+Date of Visit: {{booking.date}} at {{booking.time}}
+<br>
+Reason for Visit: {{booking.reason}}
+<br>
+
+{% endblock %}
